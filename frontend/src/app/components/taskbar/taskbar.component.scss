@@ -1,0 +1,58 @@
+.taskbar {
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  z-index: 1000;
+  border-top: 2px solid #312F2D;
+}
+
+.taskbar-start {
+  gap: 12px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.taskbar-controls {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  color: #312F2D;
+  font-size: 14px;
+  position: absolute;
+  right: 12px;
+}
+
+
+
+.taskbar-item {
+  background: none;
+  height: 27px;
+  border: none;
+  color: #312F2D;
+  font-size: 26px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.material-symbols-outlined{
+  font-size: 27px;
+}
+
+.taskbar-item:hover {
+  color: #312F2D;
+  transform: scale(1.1);
+}
+
+.taskbar-search {
+  max-width: 250px;
+}
+
+.audio-control{
+  color:#312F2D;
+}

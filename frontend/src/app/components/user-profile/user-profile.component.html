@@ -1,0 +1,25 @@
+<div class="close-bar d-flex justify-content-between align-items-center">
+    <div class="ms-2 close-heading">
+     Settings
+    </div>
+    <div class="d-flex align-items-center">
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined">minimize</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined">crop_square</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" [routerLink]="['/desktop']">close</span></button>
+    </div>
+</div>
+<div class="d-flex">
+    <div class="sidebar d-flex flex-column justify-content-between">
+    <ul class="header">
+        <li [routerLink]="'account'"><a class="d-flex"><span class="material-symbols-outlined me-2">person</span>Account</a>
+        </li>
+        <li [routerLink]="'display'"><a class="d-flex"><span class="material-symbols-outlined me-2">edit_square</span>Display</a>
+        </li>
+    </ul>
+    <div class="logout d-flex justify-content-center" (click)="logout()"><span class="material-symbols-outlined me-2">lock_open_circle</span>
+        Logout</div>
+   </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,182 @@
+@use 'app/styles/themes/themes.scss' as *;
+@use '@angular/material' as mat;
+
+:root {
+  @include mat.select-overrides((
+    panel-background-color: var(--bg-color),
+    enabled-trigger-text-color: var(--text-color),
+  ));
+
+  @include mat.form-field-overrides((
+    filled-input-text-color: var(--text-color),
+    outlined-outline-color: var(--text-color),
+    filled-container-color: var(--bg-color),
+  ));
+}
+
+
+// GENERAL STYLES
+
+html, body{
+     font-family: "Mona Sans", sans-serif;
+     background-color: var(--bg-color);
+     color: var(--text-color);
+}
+
+body{
+     cursor: url('/cursor.png'), auto;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+// CLOSE BAR
+
+.close-bar{
+    height: 40px;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-bottom: 2px solid var(--text-color);
+    padding: 5px;
+}
+
+.close-heading{
+    color: #312F2D;
+}
+
+// BUTTONS
+
+.btn-cross{
+    height: 25px;
+    width: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--bg-color);
+    color: var(---text-color);
+
+    border: 2px solid var(--text-color);
+    border-radius: 3px;
+
+    font-size: 16px;
+   
+}
+
+.app-btn{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 0 var(--text-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px;
+    padding: 5px 10px;
+
+    font-size: 16px;
+}
+
+.btn-cross:hover,
+.app-btn:hover{
+    background-color: var(--primary-color);
+    color: #312F2D;
+    box-shadow: 3px 3px 0 0 var(--text-color);
+}
+
+.material-symbols-outlined {                      
+    font-family: 'Material Symbols Outlined';
+}
+
+.btn-cross {
+    .material-symbols-outlined {
+        font-size: 14px;
+        color: var(--text-color);
+    }
+}
+
+// NAV BAR
+
+.nav{
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--text-color);
+    .nav-link{
+          padding: 10px 15px;
+          cursor: pointer;
+          position: relative;
+          color: var(--text-color);
+    }
+    .nav-link:hover{
+          color: var(--secondary-color);
+    }
+    .nav-link.active{
+        color: var(--text-color);
+        font-weight: 500;
+    }
+    .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background-color: var(--text-color);
+        border-radius: 1px;
+}
+}
+
+// SEARCH BAR
+
+
+.taskbar-search {
+  width: 900px;
+}
+
+.taskbar-search input[type="search"] {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 0 0 var(--text-color) ;
+  border: 1px solid var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.taskbar-search input[type="search"]::placeholder {
+  color: var(--text-color);
+}
+
+.taskbar-search input[type="search"]:focus::placeholder {
+   color: #312F2D;
+}
+
+.taskbar-search input[type="search"]:focus {
+  outline: none;
+  border-color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+//dots
+
+.dot{
+  height: 15px;
+  width: 15px;
+  background-color: #FBF5E7;
+  border: 2px solid #312F2D;
+  border-radius: 50%;
+  box-shadow: 2px 2px 0 0 #312F2D;
+}
+
+.dot.filled{
+  background-color: var(--primary-color);
+}
+
+

@@ -1,0 +1,125 @@
+html, body{
+     background-color: var(--bg-color);
+}
+
+
+// Wallpaper
+.home{
+    height: 100vh;
+    width: 100%;
+    color: #312F2D;
+    font-weight: 500;
+    font-size: 80px; 
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.head{
+  height: 40px;
+  border-bottom: 2px solid var(--text-color);
+}
+
+.devos{
+  background-color: var(--bg-color);
+  color:var(--text-color);
+  border: 2px solid var(--text-color);
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 0 var(--text-color);
+}
+
+.devos-font{
+  padding: 30px;
+  font-size: 80px;
+}
+
+.dot.filled{
+  background-color: var(--text-color);
+}
+
+//Icons
+.home-icons{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: none;
+}
+
+.item{
+  background: none;
+  border: none;
+  color: #312F2D;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  width: 100px; 
+}
+
+.material-symbols-outlined{
+   font-size: 50px;
+}
+
+//Calender
+.calender{
+  position: absolute;
+  top:0;
+  right: 0;
+  background-color: var(--bg-color);
+  border-radius: 20px;
+  border: 2px solid var(--text-color);
+  box-shadow: 5px 5px 0 0 #312F2D;
+  margin: 10px;
+  width: 315px;
+  height: auto;
+  overflow: hidden;
+}
+
+.header{
+  height: 40px;
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--text-color);
+  font-weight: bold;
+  color: #312F2D;
+}
+
+.btn-cross{
+  .material-symbols-outlined{
+    font-size: 16px;
+  }
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  gap: 5px;
+  max-width: 300px;
+  user-select: none;
+  padding: 5px;
+  color: var(--text-color);
+}
+
+.day {
+  padding: 5px;
+  text-align: center;
+}
+
+.day.heading {
+  font-weight: bold;
+}
+
+.day.highlight {
+  background-color: var(--primary-color);
+  color: #333;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.footer{
+  height: 40px;
+  border-top: 2px solid var(--text-color);
+  color: var(--text-color);
+}

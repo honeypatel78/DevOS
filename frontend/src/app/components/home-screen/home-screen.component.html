@@ -1,0 +1,71 @@
+<div class = "home d-flex align-items-center justify-content-center text-center">
+  <div class="devos">
+    <div class="head d-flex justify-content-end align-items-center">
+     
+        <span class="dot filled me-2"></span>
+        <span class="dot me-2"></span>
+        <span class="dot me-2 "></span>
+    </div>
+    <div class="devos-font" >
+    Welcome To The
+    <br>
+    &lt;/&gt;DevOS!
+    </div>
+  </div>
+    
+</div>
+<div class="d-flex home-icons">
+<div class="d-flex flex-column align-items-start justify-content-start">
+    <button class="item" title="DevChrome" [routerLink]="['/desktop/posts']" routerLinkActive="router-link-active">
+      <span class="material-symbols-outlined" >code_blocks</span>
+      <div>DevChrome</div>
+    </button>
+    <button class="item" title="DevEditor" [routerLink]="['/desktop/post-editor']" routerLinkActive="router-link-active">
+      <span class="material-symbols-outlined">edit_note</span>
+      <div>DevEditor</div>
+    </button>
+    <button class="item" title="Posts" [routerLink]="['/desktop/files']" routerLinkActive="router-link-active">
+      <span class="material-symbols-outlined">folder_open</span>
+      <div>File <br> Explorer</div>
+    </button>
+    <button class="item" title="Settings" [routerLink]="['/desktop/profile']" routerLinkActive="router-link-active">
+      <span class="material-symbols-outlined" >settings</span>
+      <div>Settings</div>
+    </button>
+    <button class="item" title="Streak-Calender" (click)="toggleCalender()">
+      <span class="material-symbols-outlined" >calendar_month</span>
+      <div>Calender</div>
+    </button>
+    <button class="item" title="Help" [routerLink]="['/desktop/help']" routerLinkActive="router-link-active">
+      <span class="material-symbols-outlined" >contact_page</span>
+      <div>Help</div>
+    </button>
+</div>
+<div class="d-flex flex-column align-items-start justify-content-start">
+  <button class="item" title="Help" [routerLink]="['/desktop/recyclebin']" routerLinkActive="router-link-active">
+      <span class="material-symbols-outlined" >delete</span>
+      <div>Recycle <br> Bin </div>
+    </button>
+</div>
+</div>
+
+<!-- Calender Section -->
+<div class="calender" *ngIf="isCalender">
+  <div class="header d-flex justify-content-between align-items-center">
+    <div class="ms-2">{{monthName}}</div>
+    <button class="btn-cross me-2" (click)="toggleCalender()"><span class="material-symbols-outlined">close</span></button>
+  </div>
+  <div class="body">
+  <div class="day heading" *ngFor="let d of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">{{ d }}</div>
+
+  <div 
+    class="day" 
+    *ngFor="let day of days" 
+    [class.highlight]="isPostedDate(day)"
+  >
+    {{ day || '' }}
+  </div>
+</div>
+<div class="footer d-flex align-items-center justify-content-start ps-2">Streak Count: {{maxStreak}} </div>
+
+</div>

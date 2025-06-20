@@ -1,0 +1,25 @@
+.help-section{
+    width: 1000px;
+}
+
+.wrap{
+    border-bottom: 1px solid var(--text-color);
+    padding: 10px;
+}
+
+.icon{
+    .material-symbols-outlined{
+        font-size: 80px;
+        color: var(--text-color);
+    }
+}
+
+.description{
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.icon{
+    margin-right: 20px;
+}

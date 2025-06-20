@@ -1,0 +1,31 @@
+.main{
+    color: var(--text-color);
+    margin: 10px;
+}
+
+.app-btn.blue{
+  background-color: #C4E7E2;
+  color: #312F2D;
+}
+.app-btn.pink{
+  background-color: #F2D5D1;
+  color: #312F2D;
+}
+.app-btn.yellow{
+  background-color: #F3D499;
+  color: #312F2D;
+}
+
+
+.app-btn.light{
+  color: #312F2D;
+  background-color: #FBF5E7;
+  box-shadow: none;
+}
+.app-btn.dark{
+  color: #FBF5E7;
+  background-color: #312F2D;
+  box-shadow: none;
+}
+
+

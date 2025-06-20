@@ -1,0 +1,159 @@
+<!-- 2.1 Login Section -->
+ <div  id="modal" class="modal d-flex flex-column" *ngIf="!showSignupForm"> 
+  <form (ngSubmit)="login()" class="modal-box text-start">
+    <div class="head d-flex align-items-center justify-content-between p-3">
+    <h4 class="">Login</h4>
+    <div class="d-flex">
+        <span class="dot me-2"></span>
+        <span class="dot me-2"></span>
+        <span class="dot "></span>
+    </div>
+    </div>
+
+    <div class="p-3">
+    <div class="mb-4">
+       <label for="username" class="me-2">Enter Username:</label>
+        <input
+        id="username"
+        class="input-box"
+        type="text"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="Username"
+        required
+        />
+    </div>
+
+    <div class="mb-3">
+    <label for="pw" class="me-2">Enter Password:</label>
+    <input
+      id="pw"
+      class="input-box"
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+      required
+    />
+    </div>
+    <div class="d-flex justify-content-center ">
+    <button 
+        class="app-btn"
+        type="submit">
+          Login 
+        </button>
+    </div>
+    </div>
+    <div class="text-center mb-2">
+        Don't have account? <span class="signup-link" (click)="toggleSignupForm()">Signup Instead.</span>
+    </div>
+   
+  </form>
+  <div *ngIf="loginMessage" style="color:red" class="mt-2">{{ loginMessage }}</div>
+</div> 
+
+
+
+<!-- 2.1 Signup Section -->
+<div *ngIf="showSignupForm" id="modal" class="modal d-flex flex-column">
+  <form (ngSubmit)="signup()" class="modal-box">
+    <div class="head d-flex align-items-center justify-content-between p-3">
+    <h4 class="">Signup</h4>
+    <div class="d-flex">
+        <span class="dot me-2"></span>
+        <span class="dot me-2"></span>
+        <span class="dot "></span>
+    </div>
+    </div>
+
+    <div class="p-3">
+      <label class="">Select Profile Photo:</label>
+      <div class="avatars d-flex justify-content-center">
+      <div class="avatar-option d-flex flex-column align-items-center">
+        <label for="avatar1">
+          <img src="male.png" alt="Avatar 1" class="avatar-icon">
+        </label>
+        <input type="radio" id="avatar1" name="avatar" value="/uploads/male.png" [(ngModel)]="avatar" required>
+      </div>
+
+      <div class="avatar-option d-flex flex-column align-items-center">
+        <label for="avatar2">
+          <img src="female.png" alt="Avatar 2" class="avatar-icon">
+        </label>
+        <input type="radio" id="avatar2" name="avatar" value="/uploads/female.png" [(ngModel)]="avatar">
+      </div>
+
+      <div class="avatar-option d-flex flex-column align-items-center">
+        <label for="avatar3">
+          <img src="male-2.png" alt="Avatar 3" class="avatar-icon">
+        </label>
+        <input type="radio" id="avatar3" name="avatar" value="/uploads/male-2.png" [(ngModel)]="avatar">
+      </div>
+
+      <div class="avatar-option d-flex flex-column align-items-center">
+        <label for="avatar4">
+          <img src="female-2.png" alt="Avatar 4" class="avatar-icon">
+        </label>
+        <input type="radio" id="avatar4" name="avatar" value="/uploads/female-2.png" [(ngModel)]="avatar">
+      </div>
+      </div>
+      
+    
+    <div class="mb-4 mt-4">
+       <label for="username" class="me-2">Username:</label>
+       <br>
+        <input
+        id="username"
+        class="input-box"
+        type="text"
+        [(ngModel)]="username"
+        name="username"
+        placeholder="Username"
+        required
+        />
+    </div>
+
+    <div class="mb-4">
+    <label for="pw" class="me-2">Password:</label>
+    <br>
+    <input
+      id="pw"
+      class="input-box"
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+      required
+    />
+    </div>
+
+    <div class="mb-4">
+    <label for="pw" class="me-2">Confirm Password:</label>
+    <br>
+    <input
+      id="pw"
+      class="input-box"
+      type="password"
+      [(ngModel)]="confirmPassword"
+      name="password"
+      placeholder="Password"
+      required
+    />
+    </div>
+
+    <div class="d-flex justify-content-center" >
+    <button 
+        class="app-btn"
+        type="submit" >
+          Sign Up 
+        </button>
+    </div>
+
+    <div class="text-center mb-2 mt-1">
+       <span class="signup-link" (click)="toggleSignupForm()">Login Instead.</span>
+    </div>
+
+</div>
+  </form>
+  <div *ngIf="loginMessage" style="color:red" class="mt-2">{{ loginMessage }}</div>
+</div>

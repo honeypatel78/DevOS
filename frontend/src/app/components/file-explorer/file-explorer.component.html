@@ -1,0 +1,31 @@
+<div class="close-bar d-flex justify-content-between align-items-center">
+    <div class="ms-2 close-heading">
+     File Explorer
+    </div>
+    <div class="d-flex align-items-center">
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" (click)="playsound()">minimize</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" (click)="playsound()">crop_square</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" [routerLink]="['/desktop']" routerLinkActive="router-link-active" (click)="playsound()">close</span></button>
+    </div>
+</div>
+
+<nav>
+    <ul class="nav">
+        <li class="nav-element">
+            <a class="nav-link" (click)="playsound()">Files</a>
+        </li>
+        <li class="nav-element">
+            <a class="nav-link" [routerLink]="'posted'" routerLinkActive="active" (click)="playsound()">Posts</a>
+        </li>
+        <li class="nav-element">
+            <a class="nav-link" [routerLink]="'draft'" routerLinkActive="active" (click)="playsound()">Drafts</a>
+        </li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>
+
+
+
+
+
+

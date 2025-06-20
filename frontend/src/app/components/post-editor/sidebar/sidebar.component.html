@@ -1,0 +1,17 @@
+<div class="sidebar">
+    
+    <ul class="header">
+        <li>
+            <div class="d-flex" (click)="openHeader('posts')"><span class="material-symbols-outlined me-2">{{isPostHeader?"folder_open":"folder"}}</span>My Posts</div>
+            <ul *ngIf="isPostHeader" class="subheader">
+                <li class="d-flex justify-content-between" *ngFor="let cat of posts" [routerLink]="['edit', cat.PostID]" routerLinkActive="active" ><span><i class="material-symbols-outlined me-2">{{!isPostHeader?"folder_open":"folder_open"}}</i>{{cat.PostName}}</span><i class="material-symbols-outlined me-2">brush</i></li>
+            </ul>
+        <li><div class="d-flex" (click)="openHeader('drafts')"><span class="material-symbols-outlined me-2">{{isDraftHeader?"folder_open":"folder"}}</span>My Drafts</div>
+            <ul *ngIf="isDraftHeader" class="subheader">
+                <li class="d-flex justify-content-between" *ngFor="let cat of drafts" [routerLink]="['draft', cat.PostID]" routerLinkActive="active" ><span><i class="material-symbols-outlined me-2">{{!isDraftHeader?"folder_open":"folder_open"}}</i>{{cat.PostName}}</span><i class="material-symbols-outlined me-2">brush</i>
+                </li>
+            </ul>
+        </li>
+    </ul>
+   
+</div>

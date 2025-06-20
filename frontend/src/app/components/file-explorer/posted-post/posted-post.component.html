@@ -1,0 +1,67 @@
+<div class="row">
+<div class="files col-1" *ngFor="let item of posts; track item; let i = index" (click)="viewPosts(i)">
+    <ul class="d-flex align-items-center justify-content-start">
+        <li class="d-flex flex-column align-items-center justify-content-center me-5">
+            <span class="material-symbols-outlined" (click)="playsound()">
+             folder_open
+             </span>
+            <span>{{item.PostName}}</span>
+        </li>
+    </ul>
+</div>
+<div *ngIf="posts.length===0" class="text-center mt-3" >No Posts Yet.</div>
+</div>
+
+<div id="modal" class="modal" *ngIf="isPost">
+    <div class="browser-post d-flex justify-content-center p-4">
+      <div class="browser-wrapper">
+        <div class="browser-window">
+          <!-- Post Header -->
+        <div class="browser-header d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                <div class="me-2 ms-2">
+                  <img [src]="'http://localhost:3000' + posts[index].ProfilePhoto" class="profile-photo">
+                </div>
+                <div class="user">
+                  <div class="big-font">{{  posts[index].Username}}</div>
+                  <div class="small-font">{{  posts[index].CreatedAt | date:'short'}}</div>
+                </div>
+            </div>
+            <div class="d-flex">
+             <button class="btn-cross" (click)="close(); playsound()"><span class="material-symbols-outlined">close</span></button>
+            </div>
+          
+        </div>
+
+        <!-- Post Body -->
+        <div class="browser-content">       
+        <div class="content">
+            <div class="title mb-2 big-font">
+                <span class="light">&lt;title&gt;</span> {{ posts[index].PostTitle}} <span class="light">&lt;/title&gt;</span>
+            </div>
+            <div class="body d-flex">
+                <div class="img"><img [src]="getBase64Image(posts[index].PostPhoto)"></div>
+                <div class="description ms-2 medium-font">
+                <span class="light">&lt;body&gt;</span>
+                {{ posts[index].PostDescription}}
+                <span class="light">&lt;/body&gt;</span>
+            </div>
+            </div>
+            <div class="categories mt-2">
+                <ul class="list-cat d-flex medium-font">
+                     <li *ngFor="let cat of  posts[index].Categories.split(', ')">{{ cat }}</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+      <div class="browser-shadow"></div>
+
+      <div class="browser-shadow second"></div>
+      </div>
+        </div>
+
+
+
+</div>

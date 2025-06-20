@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+
+form{
+  padding-bottom: 100px;
+}
+
+.material-symbols-outlined{
+  font-family: 'Material Symbols Outlined';
+}
+
+.app-btn:disabled{
+  background-color: rgb(205, 204, 203);
+  color: var(--text-color);
+}
+
+.post-title input {
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: var(--text-color);
+  padding: 4px 8px;
+  width: 140px;
+  font-weight: 500;
+  border-radius: 6px;
+
+  &:focus {
+    outline: none;
+    background-color: #ffffff50;
+  }
+}
+
+.create-tab{
+  height: 100vh;
+}
+
+.row{
+  margin: 0;
+}
+
+.post-title{
+ height: 100%;
+ background-color: var(--bg-color);
+ border-right: 1px solid var(--text-color);
+}
+
+.header {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 50px;
+}
+
+.btn-area{
+   border-bottom: 1px solid var(--text-color);
+}
+
+main{
+   padding: 15px;
+   color: var(--text-color);
+}
+
+.com{
+  color: green;
+  margin-left: 10px;
+}
+
+.card {
+  padding: 15px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+}
+
+.input-text,
+.input-file,
+.input-select {
+  padding: 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  box-shadow: 3px 3px 0 0 var(--text-color);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.input-name{
+  border-radius: 10px;
+  width: 60%;
+  font-size: 14px;
+  padding: 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  font-family: inherit;
+}
+
+.input-name::placeholder {
+  color: var(--text-color);
+}
+
+.input-text::placeholder {
+  color: var(--text-color);
+}
+
+.input-file {
+  padding: 6px;
+}
+
+.input-select {
+  height: auto;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  box-shadow: 3px 3px 0 0 var(--text-color);
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: var(--primary-color);
+  color: #312F2D;
+}
+
+
+.pop-up{
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    border: 2px solid var(--text-color);
+    box-shadow: 5px 5px 0 0 var(--text-color);
+
+    overflow: hidden;
+
+    height: 200px;
+    width: 600px;
+}
+
+.head{
+    background-color: var(--primary-color);
+    border-bottom: 1px solid var(--text-color);
+    height: 20%;
+}
+
+.heading{
+  color: #312F2D;
+  font-weight: 500;
+}
+
+.material-symbols-outlined{
+      font-family: 'Material Symbols Outlined';
+      font-size: 16px; 
+}
+
+.main-text{
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+//Categories 
+
+.mat-mdc-select-arrow svg {
+  fill: var(--text-color);
+}
+
+.mat-mdc-select{
+  color: var(--text-color);
+}
+

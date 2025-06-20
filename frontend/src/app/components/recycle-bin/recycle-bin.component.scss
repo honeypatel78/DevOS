@@ -1,0 +1,232 @@
+.files{
+    padding-top: 20px;
+    color: var(--text-color);
+
+    .material-symbols-outlined {
+      font-size: 100px;
+      color: var(--secondary-color);
+    }
+}
+
+// Modal
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* semi-transparent white */
+  backdrop-filter: blur(6px); /* blur the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+
+// Post Template 
+
+// 01. Browser
+
+.browser-wrapper {
+  position: relative;
+  width: 800px;
+  box-sizing: border-box;
+}
+
+.browser-window {
+  position: relative;
+  background: var(--bg-color);
+  border: 2px solid var(--text-color);
+  border-radius: 20px 20px 10px 10px;
+  z-index: 4000;
+}
+
+.browser-header {
+  background-color: var(--primary-color);
+  border-bottom: 2px solid var(--text-color);
+  height: 60px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+}
+
+.browser-content {
+  height: calc(100% - 65px);
+  
+}
+
+.browser-shadow,
+.browser-shadow.second {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--bg-color);
+  border: 2px solid var(--text-color);
+  border-radius: 20px 20px 10px 10px;
+  width: 100%;
+  height: 100%;
+  z-index:3000;
+}
+
+.browser-shadow.second {
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+// 02. Font
+
+.light {
+    color: var(--primary-color);
+    font-weight: 400;
+}
+
+.big-font {
+    font-size: 18px;
+    font-weight: 550;
+}
+
+.small-font {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.medium-font {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+// 0.3 Main Elements
+
+.author {
+    padding: 10px;
+    background-color: #B3B3B3;
+    color: #2B2B2B;
+}
+
+.content {
+    padding: 10px;
+}
+
+.profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid 1px #2B2B2B;
+    background-color: #2B2B2B;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    border: 1px solid var(--text-color);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.description {
+    flex-grow: 1;
+    border: 1px solid var(--text-color);
+    border-radius: 20px;
+
+     padding: 5px;
+
+}
+
+.title{
+    border: 1px solid var(--text-color);
+    border-radius: 15px;
+
+    padding: 5px;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.list-cat {
+    padding: 0px;
+    margin: 0px;
+}
+
+.list-cat li {
+    list-style: none;
+    margin-right: 10px;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--text-color);
+
+}
+
+// 0.4 End Section
+.end-section {
+    padding: 10px;
+    border-top: 1.8px solid var(--text-color) ;
+} 
+
+
+// 4.1 Comment Section 
+
+.comments-list {
+    padding: 10px;
+
+    list-style: none;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    border-radius: 20px;
+}
+
+
+.input-box {
+    // height: 40px;
+
+    padding: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 20px;
+}
+
+.post-btn {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    
+    
+    height: 40px;
+}
+
+// 4.2 Like Section 
+.btn-like {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.comment-btn {
+    font-size: 24px;
+}
+
+
