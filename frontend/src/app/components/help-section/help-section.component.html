@@ -3,9 +3,9 @@
      Help
     </div>
     <div class="d-flex align-items-center">
-    <button class="me-2 btn-cross"><span class="material-symbols-outlined">minimize</span></button>
-    <button class="me-2 btn-cross"><span class="material-symbols-outlined">crop_square</span></button>
-    <button class="me-2 btn-cross"><span class="material-symbols-outlined" [routerLink]="['/desktop']">close</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" (click)="playsound()">minimize</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" (click)="playsound()">crop_square</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" [routerLink]="['/desktop']" (click)="playsound()">close</span></button>
     </div>
 </div>
 

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatFormField, MatLabel, MatSelectModule } from '@angular/material/select';
+import { SoundService } from '../../../services/sound.service';
 
 @Component({
   selector: 'app-display',
@@ -11,16 +12,21 @@ import { MatFormField, MatLabel, MatSelectModule } from '@angular/material/selec
 })
 export class DisplayComponent implements OnInit {
 
+  soundService = inject(SoundService);
+
   ngOnInit() {
   const savedTheme = localStorage.getItem('theme') || 'default';
   const savedMode = localStorage.getItem('mode') || 'light';
 
   this.setTheme(savedTheme);
   this.setMode(savedMode);
- }
+  }
 
-  
-   setTheme(theme: string) {
+  playsound() {
+    this.soundService.playSound();
+  }
+
+  setTheme(theme: string) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
     

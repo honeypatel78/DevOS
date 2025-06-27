@@ -1,0 +1,31 @@
+<div class="terminal" *ngIf="isTerminal">
+  <div class="header d-flex justify-content-between align-items-center">
+    <div class="d-flex">
+              <span class="ms-2 dot filled me-2"></span>
+              <span class="dot me-2"></span>
+              <span class="dot"></span>
+    </div>
+    <div>Terminal</div>
+    <button class="btn-cross me-2" (click)="playsound(); toggleTerminal()" routerLinkActive="router-link-active"><span class="material-symbols-outlined">close</span></button>
+  </div>
+  <div class="terminal-body" #terminalBody>
+    <div class="terminal-header">DevOS [Version 1.0.0]<br>(c) Honey Patel. All rights reserved.
+    </div>
+    <div class="pt-3">
+    <div class="output-area">
+    <div *ngFor="let line of outputLines">{{ line }}</div>
+    </div>
+
+    <div class="input-line">
+    <span class="prompt">C:\DevOS\Desktop></span>
+    <input
+      [(ngModel)]="commandInput"
+      (keydown.enter)="handleCommand()"
+      autofocus
+    />
+    </div>
+    </div>
+
+  </div>
+  
+</div>

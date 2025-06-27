@@ -1,0 +1,53 @@
+// TERMINAL
+.terminal {
+  width: 800px;
+  height: 500px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 20px;
+  border: 2px solid var(--text-color);
+  box-shadow: 5px 5px 0 0 #312F2D;
+
+  overflow: hidden;
+}
+
+.header{
+  height: 40px;
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--text-color);
+  font-weight: bold;
+  color: #312F2D;
+}
+
+.terminal-body{
+  overflow-y: auto;
+  height: calc(100% - 40px);
+  white-space: pre-wrap;
+
+  padding: 5px 0 5px 10px;
+}
+
+input {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  width: 100%;
+  outline: none;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  margin-right: 5px;
+}
+

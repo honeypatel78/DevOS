@@ -1,12 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { StreakService } from '../../services/streak.service';
 import { APIResponse } from '../../models/interface';
+import { SoundService } from '../../services/sound.service';
+import { FormsModule } from '@angular/forms';
+import { TerminalComponent } from '../terminal/terminal.component';
 
 @Component({
   selector: 'app-home-screen',
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, FormsModule, TerminalComponent],
   templateUrl: './home-screen.component.html',
   styleUrl: './home-screen.component.scss'
 })
@@ -21,7 +24,11 @@ export class HomeScreenComponent implements OnInit{
   maxStreak = 1;
   currentStreak = 1;
 
+  isTerminal = false;
+
   streakService = inject(StreakService);
+  soundService = inject(SoundService);
+
 
   id = Number(localStorage.getItem('userID'));
 
@@ -35,6 +42,14 @@ export class HomeScreenComponent implements OnInit{
   ngOnInit(): void {
     this.generateCalendar(this.year, this.month);
     this.getPostedAt(this.id);
+  }
+
+  toggleTerminal() {
+    this.isTerminal = !this.isTerminal;
+  }
+
+  playsound(){
+    this.soundService.playSound();
   }
 
   getPostedAt(id: number) {

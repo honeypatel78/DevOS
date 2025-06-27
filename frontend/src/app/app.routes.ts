@@ -16,6 +16,7 @@ import { DraftsComponent } from './components/file-explorer/drafts/drafts.compon
 import { DesktopComponent } from './components/desktop/desktop.component';
 import { EditDraftComponent } from './components/post-editor/edit-draft/edit-draft.component';
 import { RecycleBinComponent } from './components/recycle-bin/recycle-bin.component';
+import { TerminalComponent } from './components/terminal/terminal.component';
 
 export const routes: Routes = [
  {
@@ -35,6 +36,7 @@ export const routes: Routes = [
       {  path: 'home', component: HomeScreenComponent},
       {  path: 'recyclebin', component: RecycleBinComponent},
       {  path: 'posts', component: PostComponent},
+      
       {  path: 'profile', component: UserProfileComponent,
          children: [
             { path:'', component: AccountComponent},

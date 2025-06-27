@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SoundService } from '../../services/sound.service';
 
 
 
@@ -22,6 +23,8 @@ export class LoginComponent {
   loginMessage ='';
   showAvatar = true;
   showSignupForm = false;
+
+  soundService = inject(SoundService);
   constructor(public auth: AuthService, private http: HttpClient, private router: Router) {}
 
   login() {
@@ -91,8 +94,11 @@ toggleAvatar(){
   this.showAvatar = !this.showAvatar;
 }  
 
+// signuptry(){
+//   console.log(this.avatar);
+// }
 
-signupfake(){
-  console.log(this.avatar);
+playsound(){
+    this.soundService.playSound();
 }
 }

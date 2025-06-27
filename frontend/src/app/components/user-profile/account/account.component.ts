@@ -4,6 +4,7 @@ import { PostsService } from '../../../services/posts.service';
 import { APIResponse } from '../../../models/interface';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../../services/user.service';
+import { SoundService } from '../../../services/sound.service';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private soundService: SoundService
   ) {
     this.postForm = this.fb.group({
       name: ['', Validators.required],
@@ -61,6 +63,10 @@ export class AccountComponent implements OnInit {
     } else {
       console.error('Invalid userID:', this.userID);
     }
+   }
+
+   playsound(){
+    this.soundService.playSound(); 
    }
 
    toggleEdit() {

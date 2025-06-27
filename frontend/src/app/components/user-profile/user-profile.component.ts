@@ -7,6 +7,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
+import { SoundService } from '../../services/sound.service';
 
 
 
@@ -21,13 +22,16 @@ export class UserProfileComponent implements OnInit{
   postService = inject(PostsService);
   userService = inject(UserService);
 
-  constructor(public auth: AuthService, private http: HttpClient, private router: Router) {}
+  constructor(public auth: AuthService, private http: HttpClient, private router: Router, private soundService: SoundService) {}
  
 
   ngOnInit() {
      this.getUser();
   }
 
+  playsound() {
+    this.soundService.playSound();
+  }
 
    userID = localStorage.getItem('userID');
    userName = localStorage.getItem('username');

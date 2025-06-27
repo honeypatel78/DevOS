@@ -1,29 +1,29 @@
 <nav class="taskbar d-flex align-items-center">
   <div class="taskbar-start d-flex align-items-center justify-content-center">
-    <button class="taskbar-item" title="DevHome" [routerLink]="['home']" routerLinkActive="router-link-active">
+    <button class="taskbar-item" title="DevHome" [routerLink]="['home']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined">grid_view</span>
     </button>
     <div class="taskbar-search">
       <input type="search" placeholder="Type here to search" />
     </div>
-    <button class="taskbar-item" title="DevChrome" [routerLink]="['posts']" routerLinkActive="router-link-active">
+    <button class="taskbar-item" title="DevChrome" [routerLink]="['posts']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined" >code_blocks</span>
     </button>
-    <button class="taskbar-item" title="DevEditor" [routerLink]="['post-editor']" routerLinkActive="router-link-active">
+    <button class="taskbar-item" title="DevEditor" [routerLink]="['post-editor']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined">edit_note</span>
     </button>
-    <button class="taskbar-item" title="Posts" [routerLink]="['files']" routerLinkActive="router-link-active">
+    <button class="taskbar-item" title="Posts" [routerLink]="['files']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined">folder_open</span>
     </button>
-    <button class="taskbar-item" title="Settings" [routerLink]="['profile']" routerLinkActive="router-link-active">
+    <button class="taskbar-item" title="Settings" [routerLink]="['profile']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined" >settings</span>
     </button>
   </div>
 
   <div class="taskbar-controls d-flex align-items-center justify-content-center">
     <div class="taskbar-item d-flex align-items-center" title="Volume">
-      <span class="material-symbols-outlined" *ngIf="!btnclick" (click)="buttonToggle()">volume_up</span>
-      <input type="range" id="vol" name="vol" min="0" max="50" class="audio-control" *ngIf="btnclick" (click)="buttonToggle()">
+      <span class="material-symbols-outlined" *ngIf="!btnclick" (click)="buttonToggle(); playsound()" >volume_up</span>
+      <input type="range" id="vol" name="vol" min="0" max="50" class="audio-control" *ngIf="btnclick" (click)="buttonToggle(); playsound()" />
     </div>
     <div class="taskbar-time d-flex flex-column justify-content-center align-items-center" aria-label="Current time">{{date | date:'HH:mm'}}<div>{{date | date:'dd-MM-YYYY'}}</div></div>
   </div>

@@ -4,6 +4,7 @@ import { PostsService } from '../../services/posts.service';
 import { Posts } from '../../models/class';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SoundService } from '../../services/sound.service';
 
 @Component({
   selector: 'app-recycle-bin',
@@ -14,6 +15,7 @@ import { RouterLink } from '@angular/router';
 export class RecycleBinComponent implements OnInit{
   
   postService = inject(PostsService);
+  soundService = inject(SoundService);
   userID = Number(localStorage.getItem("userID"));
   deletes : Posts[] = [];
   index = 0;
@@ -21,6 +23,10 @@ export class RecycleBinComponent implements OnInit{
 
   ngOnInit(): void {
       this.getDraftsById();
+  }
+
+  playsound(){
+    this.soundService.playSound();
   }
 
   getDraftsById(){

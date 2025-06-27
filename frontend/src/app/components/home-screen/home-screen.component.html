@@ -16,35 +16,40 @@
 </div>
 <div class="d-flex home-icons">
 <div class="d-flex flex-column align-items-start justify-content-start">
-    <button class="item" title="DevChrome" [routerLink]="['/desktop/posts']" routerLinkActive="router-link-active">
+    <button class="item" title="DevChrome" [routerLink]="['/desktop/posts']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined" >code_blocks</span>
       <div>DevChrome</div>
     </button>
-    <button class="item" title="DevEditor" [routerLink]="['/desktop/post-editor']" routerLinkActive="router-link-active">
+    <button class="item" title="DevEditor" [routerLink]="['/desktop/post-editor']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined">edit_note</span>
       <div>DevEditor</div>
     </button>
-    <button class="item" title="Posts" [routerLink]="['/desktop/files']" routerLinkActive="router-link-active">
+    <button class="item" title="File Explorer" [routerLink]="['/desktop/files']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined">folder_open</span>
       <div>File <br> Explorer</div>
     </button>
-    <button class="item" title="Settings" [routerLink]="['/desktop/profile']" routerLinkActive="router-link-active">
+    <button class="item" title="Settings" [routerLink]="['/desktop/profile']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined" >settings</span>
       <div>Settings</div>
     </button>
-    <button class="item" title="Streak-Calender" (click)="toggleCalender()">
+    <button class="item" title="Calendar" (click)="toggleCalender()" (click)="playsound()">
       <span class="material-symbols-outlined" >calendar_month</span>
-      <div>Calender</div>
+      <div>Calendar</div>
     </button>
-    <button class="item" title="Help" [routerLink]="['/desktop/help']" routerLinkActive="router-link-active">
+    <button class="item" title="Help" [routerLink]="['/desktop/help']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined" >contact_page</span>
       <div>Help</div>
     </button>
 </div>
 <div class="d-flex flex-column align-items-start justify-content-start">
-  <button class="item" title="Help" [routerLink]="['/desktop/recyclebin']" routerLinkActive="router-link-active">
+  <button class="item" title="Command Prompt"
+   routerLinkActive="router-link-active" (click)="playsound(); toggleTerminal()">
+      <span class="material-symbols-outlined" >terminal</span>
+      <div>Terminal</div>
+    </button>
+    <button class="item" title="Recycle Bin" [routerLink]="['/desktop/recyclebin']" routerLinkActive="router-link-active" (click)="playsound()">
       <span class="material-symbols-outlined" >delete</span>
-      <div>Recycle <br> Bin </div>
+      <div>Recycle Bin </div>
     </button>
 </div>
 </div>
@@ -53,7 +58,7 @@
 <div class="calender" *ngIf="isCalender">
   <div class="header d-flex justify-content-between align-items-center">
     <div class="ms-2">{{monthName}}</div>
-    <button class="btn-cross me-2" (click)="toggleCalender()"><span class="material-symbols-outlined">close</span></button>
+    <button class="btn-cross me-2" (click)="toggleCalender(); playsound()"><span class="material-symbols-outlined">close</span></button>
   </div>
   <div class="body">
   <div class="day heading" *ngFor="let d of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">{{ d }}</div>
@@ -69,3 +74,12 @@
 <div class="footer d-flex align-items-center justify-content-start ps-2">Streak Count: {{maxStreak}} </div>
 
 </div>
+
+<!-- Terminal Section -->
+<div class="terminal" *ngIf="isTerminal">
+<app-terminal></app-terminal>
+</div>
+ 
+
+
+ 

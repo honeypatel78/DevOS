@@ -1,6 +1,7 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SoundService } from '../../services/sound.service';
 
 @Component({
   selector: 'app-taskbar',
@@ -15,11 +16,16 @@ export class TaskbarComponent implements OnInit, OnDestroy {
   date = new Date();
 
    private intervalId!: number;
+   soundService = inject(SoundService);
 
   ngOnInit() {
     this.intervalId = window.setInterval(() => {
       this.date = new Date();
     }, 30000);
+  }
+
+  playsound(){
+    this.soundService.playSound();
   }
 
   ngOnDestroy() {
