@@ -11,19 +11,20 @@
 
 <div>
 <div class="row">
-<div class="files col-1" *ngFor="let item of deletes; track: item; let i = index" (click)="viewDrafts(i)">
-    <ul class="d-flex align-items-center justify-content-start">
+<div class="files col-1" *ngFor="let item of deletes; track: item; let i = index" (click)="viewDeletes(i)">
+<ul class="d-flex align-items-center justify-content-start">
         <li class="d-flex flex-column align-items-center justify-content-center me-5">
             <span class="material-symbols-outlined">
              folder_open
              </span>
             <span>{{item.PostName}}</span>
         </li>
-    </ul>
+  </ul>
 </div>
+<div *ngIf="deletes.length===0" class="text-center mt-3"> Recycle Bin is Empty.</div>
 </div>
 
-<div id="modal" class="modal" *ngIf="isDraft">
+<div id="modal" class="modal" *ngIf="isOpen">
     <div class="browser-post d-flex justify-content-center p-4">
       <div class="browser-wrapper">
         <div class="browser-window">
@@ -67,15 +68,10 @@
         </div>
         </div>
         </div>
-        
       <div class="browser-shadow"></div>
-
       <div class="browser-shadow second"></div>
       </div>
-        </div>
-
-
-
+      </div>
 </div>
 </div>
 

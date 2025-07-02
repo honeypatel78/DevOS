@@ -3,6 +3,19 @@
 <head>
   <meta charset="utf-8">
   <title>DevOS</title>
+  <script>
+    (function () {
+      try {
+        const savedTheme = localStorage.getItem('theme') || 'default';
+        const savedMode = localStorage.getItem('mode') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.setAttribute('data-mode', savedMode);
+      } catch (e) {
+        console.error('Theme loading failed:', e);
+      }
+    })();
+  </script>
+
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.png">

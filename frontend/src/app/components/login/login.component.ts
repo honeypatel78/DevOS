@@ -6,8 +6,6 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SoundService } from '../../services/sound.service';
 
-
-
 @Component({
   selector: 'app-login',
   imports: [CommonModule, FormsModule],
@@ -21,27 +19,20 @@ export class LoginComponent {
   confirmPassword = '';
   avatar = '';
   loginMessage ='';
-  showAvatar = true;
   showSignupForm = false;
 
   soundService = inject(SoundService);
   constructor(public auth: AuthService, private http: HttpClient, private router: Router) {}
 
+  //Login 
+
   login() {
-  this.http.post<any>('http://localhost:3000/login', {
-    username: this.username,
-    password: this.password
-  }).subscribe({
+  this.auth.loginUser(this.username, this.password).subscribe({
     next: (res) => {
       if (res.status) {
-        this.auth.login(res.user); // Store user data locally
+        this.auth.login(res.user); 
         this.loginMessage = 'Login successful';
-
-        if (res.user.role === 'user') {
-          this.router.navigate(['desktop']);
-        } else {
-          this.router.navigate(['desktop']);
-        }
+        this.router.navigate(['desktop']);
       } else {
         this.loginMessage = 'Invalid username or password';
       }
@@ -51,54 +42,41 @@ export class LoginComponent {
     }
   });
     document.body.classList.remove('modal-open');
-}
+ }
 
-// Sign Up 
+  //Sign Up 
 
-signup() {
-  if(this.password != this.confirmPassword){
-    this.loginMessage = 'Password do not match';
-    return;
-  }
-  this.http.post<any>('http://localhost:3000/signup', {
-  username: this.username,
-  password: this.password,
-  avatar: this.avatar  // e.g., "avatar1"
-}
-  ).subscribe({
-    next: (res) => {
-      if (res.status) {
-        this.auth.login(res.user); // Store user data locally
-        this.loginMessage = 'Login successful';
-        
-          this.router.navigate(['desktop']);
-      
-        
-      } else {
-        this.loginMessage = 'Invalid username or password';
-      }
-    },
-    error: (err) => {
-      this.loginMessage = err.error.message || 'Login failed';
+  signup() {
+    if(this.password != this.confirmPassword){
+      this.loginMessage = 'Password do not match';
+      return;
     }
-  });
-    
-}
-
-toggleSignupForm() {
-  this.showSignupForm = !this.showSignupForm;
-  this.loginMessage = '';
+    if(!this.avatar){
+      this.loginMessage = 'Please select an avatar';
+      return;
+    }
+    this.auth.signupUser(this.username, this.password, this.avatar).subscribe({
+    next: (res) => {
+        if (res.status) {
+          this.auth.login(res.user); 
+          this.loginMessage = 'Signup successful';
+          this.router.navigate(['desktop']);
+        } else {
+          this.loginMessage = 'Signup failed';
+        }
+      },
+      error: (err) => {
+        this.loginMessage = err.error.message || 'Signup failed';
+      }
+    });
   }
 
-toggleAvatar(){
-  this.showAvatar = !this.showAvatar;
-}  
+  toggleSignupForm() {
+    this.showSignupForm = !this.showSignupForm;
+    this.loginMessage = '';
+  }
 
-// signuptry(){
-//   console.log(this.avatar);
-// }
-
-playsound(){
-    this.soundService.playSound();
-}
-}
+  playsound(){
+      this.soundService.playSound();
+  }
+ }

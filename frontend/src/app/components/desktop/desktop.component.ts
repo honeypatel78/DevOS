@@ -9,5 +9,4 @@ import { TaskbarComponent } from '../taskbar/taskbar.component';
   styleUrl: './desktop.component.scss'
 })
 export class DesktopComponent {
-
 }

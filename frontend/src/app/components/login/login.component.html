@@ -55,7 +55,7 @@
 
 
 
-<!-- 2.1 Signup Section -->
+<!-- 2.2 Signup Section -->
 <div *ngIf="showSignupForm" id="modal" class="modal d-flex flex-column">
   <form (ngSubmit)="signup()" class="modal-box">
     <div class="head d-flex align-items-center justify-content-between p-3">
@@ -159,3 +159,4 @@
   </form>
   <div *ngIf="loginMessage" style="color:red" class="mt-2">{{ loginMessage }}</div>
 </div>
+

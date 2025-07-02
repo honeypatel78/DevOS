@@ -15,7 +15,7 @@ form{
   font-size: 14px;
   color: var(--text-color);
   padding: 4px 8px;
-  width: 140px;
+  width: 50%;
   font-weight: 500;
   border-radius: 6px;
 
@@ -109,3 +109,24 @@ input[type="file"]::-webkit-file-upload-button:hover {
   width: 200px;
   box-shadow: 3px 3px 0 0 var(--text-color);
 }
+
+@media (max-width: 921px){
+
+  .pop-up{
+    width: 70%;
+  }
+
+  .main-text{
+    font-size: 20px;
+  }
+
+  .heading{
+    font-size: 15px;
+  }
+
+  .app-btn{
+    font-size: 12px;
+  }
+
+}
+

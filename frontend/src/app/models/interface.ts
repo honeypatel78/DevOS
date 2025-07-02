@@ -4,11 +4,28 @@ export interface APIResponse {
     data: any
 }
 
-export interface LoginResponse {
-  token: string;
+export interface AuthResponse {
+  status: boolean;
   user: {
     id: number;
     username: string;
     role: string;
+    avatar?: string;
   };
+  message?: string;
+}
+
+export interface LikeCountResponse {
+  status: boolean;
+  likeCount: number;
+}
+
+export interface LikeCheckResponse {
+  status: boolean;
+  liked: boolean;
+}
+
+export interface LikeResponse {
+  status: boolean;
+  message: string;
 }

@@ -1,7 +1,5 @@
 <form [formGroup]="postForm" (ngSubmit)="submitPost(submitType)">
-
-
-<div class=" create-tab d-flex flex-column align-items-center" *ngIf="!isBtnClicked">
+<div class="create-tab d-flex flex-column align-items-center" *ngIf="!isBtnClicked">
 <div class="text-center mt-5 main-text">Create New Post!</div>
 <div class="pop-up">
     <div class="head d-flex align-items-center justify-content-between">
@@ -13,7 +11,7 @@
     </div>
     </div>
     <div class="d-flex flex-column align-items-center justify-content-center">
-    <input class="input-name mt-3 mb-2" type="text" placeholder="Enter name for Post" formControlName="postname" />
+    <input class="input-name mt-3 mb-2" type="text" placeholder="Enter name for Post" formControlName="postname" title="Enter Post Name" />
     <button class="app-btn me-2 mt-3" (click)="createPost(); playsound()">Create Post</button>
     </div>
 </div>

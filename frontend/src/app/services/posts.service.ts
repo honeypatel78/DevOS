@@ -1,26 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { APIResponse } from '../models/interface';
-
-interface LikeCountResponse {
-  status: boolean;
-  likeCount: number;
-}
-
-interface LikeCheckResponse {
-  status: boolean;
-  liked: boolean;
-}
-
-interface ApiResponse {
-  status: boolean;
-  message: string;
-}
+import { LikeCountResponse, LikeCheckResponse, LikeResponse, APIResponse } from '../models/interface';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PostsService {
 
   constructor(private http: HttpClient) { }
@@ -85,12 +71,12 @@ export class PostsService {
 
   //*********************** Like Services *****************************/
 
-  likePost(postId: number, userId: number): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(`${this.baseUrl}/like/like`, { postId, userId });
+  likePost(postId: number, userId: number): Observable<LikeResponse> {
+    return this.http.post<LikeResponse>(`${this.baseUrl}/like/like`, { postId, userId });
   }
 
-  unlikePost(postId: number, userId: number): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(`${this.baseUrl}/like/unlike`, { postId, userId });
+  unlikePost(postId: number, userId: number): Observable<LikeResponse> {
+    return this.http.post<LikeResponse>(`${this.baseUrl}/like/unlike`, { postId, userId });
   }
 
   getLikeCount(postId: number): Observable<LikeCountResponse> {

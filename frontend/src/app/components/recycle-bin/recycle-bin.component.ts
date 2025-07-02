@@ -19,7 +19,7 @@ export class RecycleBinComponent implements OnInit{
   userID = Number(localStorage.getItem("userID"));
   deletes : Posts[] = [];
   index = 0;
-  isDraft = false;
+  isOpen = false;
 
   ngOnInit(): void {
       this.getDraftsById();
@@ -35,9 +35,9 @@ export class RecycleBinComponent implements OnInit{
     });
   }
 
-  viewDrafts(index: number){
+  viewDeletes(index: number){
     this.index = index;
-    this.isDraft = true;
+    this.isOpen = true;
     console.log(this.index);
   }
 
@@ -59,7 +59,7 @@ export class RecycleBinComponent implements OnInit{
         console.error('Error uploading:', err);
       }
     })
-    this.isDraft = false;
+    this.isOpen = false;
     this.getDraftsById();
   }
 
@@ -77,10 +77,8 @@ export class RecycleBinComponent implements OnInit{
         alert('Failed to delete post.');
       }
     });
-    this.isDraft = false;
+    this.isOpen= false;
     this.getDraftsById();
   }
-
-
 }
 }

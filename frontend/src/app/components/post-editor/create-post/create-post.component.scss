@@ -16,13 +16,13 @@ form{
   color: var(--text-color);
 }
 
-.post-title input {
+.post-title input{
   border: none;
   background-color: transparent;
   font-size: 14px;
   color: var(--text-color);
   padding: 4px 8px;
-  width: 140px;
+  width: 50%;
   font-weight: 500;
   border-radius: 6px;
 
@@ -174,3 +174,23 @@ input[type="file"]::-webkit-file-upload-button:hover {
   color: var(--text-color);
 }
 
+
+@media (max-width: 921px){
+
+  .pop-up{
+    width: 70%;
+  }
+
+  .main-text{
+    font-size: 20px;
+  }
+
+  .heading{
+    font-size: 15px;
+  }
+
+  .app-btn{
+    font-size: 12px;
+  }
+
+}

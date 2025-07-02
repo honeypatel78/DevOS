@@ -46,3 +46,14 @@ ul li{
       font-family: 'Material Symbols Outlined';
       color: var(--text-color);
 }
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 150px;  
+    }
+    .sidebar ul li {
+        padding: 10px;
+    }
+    
+    
+}

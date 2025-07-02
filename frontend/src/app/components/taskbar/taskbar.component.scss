@@ -1,5 +1,4 @@
 .taskbar {
-
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -24,24 +23,19 @@
   gap: 12px;
   color: #312F2D;
   font-size: 14px;
-  position: absolute;
-  right: 12px;
 }
-
-
 
 .taskbar-item {
   background: none;
-  height: 27px;
+  height: 30px;
   border: none;
   color: #312F2D;
-  font-size: 26px;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .material-symbols-outlined{
-  font-size: 27px;
+  font-size: 30px;
 }
 
 .taskbar-item:hover {
@@ -55,4 +49,52 @@
 
 .audio-control{
   color:#312F2D;
+}
+
+//MEDIA QUERIES
+/* Ensure elements don’t overflow on small screens */
+@media (max-width: 724px) {
+
+.taskbar-search {
+  max-width: 180px;
+}
+
+.material-symbols-outlined{
+  font-size: 26px;
+}
+
+.taskbar-start {
+  left: 40%;
+}
+
+}
+
+@media (max-width: 596px) {
+
+.taskbar-search {
+  max-width: 150px; 
+}
+
+  .material-symbols-outlined{
+  font-size: 22px;
+}
+
+  .taskbar-start {
+    left: 35%;
+  }
+}
+
+@media (max-width: 425px) {
+
+.taskbar-search {
+  max-width: 100px; 
+}
+
+.material-symbols-outlined{
+  font-size: 20px;
+}
+
+.taskbar-start {
+  left: 30%;
+}
 }
