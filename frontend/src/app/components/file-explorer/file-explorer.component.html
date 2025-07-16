@@ -12,13 +12,13 @@
 <nav>
     <ul class="nav">
         <li class="nav-element">
-            <a class="nav-link" (click)="playsound()">Files</a>
-        </li>
-        <li class="nav-element">
             <a class="nav-link" [routerLink]="'posted'" routerLinkActive="active" (click)="playsound()">Posts</a>
         </li>
         <li class="nav-element">
             <a class="nav-link" [routerLink]="'draft'" routerLinkActive="active" (click)="playsound()">Drafts</a>
+        </li>
+        <li class="nav-element">
+            <a class="nav-link" [routerLink]="'devlist'" routerLinkActive="active" (click)="playsound()">DevList</a>
         </li>
     </ul>
 </nav>

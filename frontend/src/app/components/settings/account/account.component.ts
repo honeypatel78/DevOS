@@ -5,6 +5,7 @@ import { APIResponse } from '../../../models/interface';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../../services/user.service';
 import { SoundService } from '../../../services/sound.service';
+import { User } from '../../../models/class';
 
 
 @Component({
@@ -24,8 +25,8 @@ export class AccountComponent implements OnInit {
   selectedImage: File | null = null;
   postForm: FormGroup;
 
-  userID = Number(localStorage.getItem('userID'));
-  userName = localStorage.getItem('username');
+  userID = Number(sessionStorage.getItem('userID'));
+  userName = sessionStorage.getItem('username');
  
 
   ngOnInit() {
@@ -43,16 +44,7 @@ export class AccountComponent implements OnInit {
     });
   }
 
-    user = {
-      UserID: 0,
-      Username: '',
-      Name:'',
-      Password: '',
-      ProfilePhoto: '',
-      CreatedAt: '',
-      UserRole: '',
-      Bio: '',
-    }
+    user: User =  new User();
 
    getUser(){
     const id = this.userID !== null ? Number(this.userID) : null;

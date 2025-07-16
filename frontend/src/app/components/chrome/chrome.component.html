@@ -1,0 +1,55 @@
+<div id="post-page">
+
+<!-- Close Bar -->
+<div class="close-bar d-flex justify-content-between align-items-center">
+    <div class="ms-2 close-heading">
+     DevChrome
+    </div>
+    <div class="d-flex align-items-center">
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" (click)="playsound()">minimize</span></button>
+    <button class="me-2 btn-cross"><span class="material-symbols-outlined" (click)="playsound()">crop_square</span></button>
+    <button class="me-2 btn-cross" [routerLink]="['/desktop']" routerLinkActive="router-link-active" (click)="playsound()"><span class="material-symbols-outlined">close</span></button>
+    </div>
+</div>
+
+<!-- 01 .Header Section -->
+<header class="header d-flex justify-content-between align-items-center">
+
+    <!-- LOGO & SEARCH BAR-->
+        <div class="d-flex align-items-center">
+        <div class="logo ms-3 me-4">
+            &lt;/&gt; DevChrome
+        </div>
+        <!-- Search Bar -->
+        <div class="taskbar-search">
+        <!-- <span class="material-symbols-outlined">search</span> -->
+        <input type="search" placeholder="Type here to search" />
+        </div>
+        </div>
+    <!-- BTN/SEARCH & FILTER -->
+        <div class="log-btn d-flex align-items-center me-2">
+        <button class="app-btn me-2 filter-btn" (click)="applyFilter()"><span>Filter</span><span class="material-symbols-outlined">discover_tune</span></button>
+        <!-- <button class="app-btn me-2" *ngIf="!auth.isLoggedIn()" (click)="toggleLoginForm()">Log In</button>
+        <button class="app-btn me-2" *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+        <button class="app-btn me-2" *ngIf="!auth.isLoggedIn()" (click)="toggleSignupForm()">Sign Up</button> -->
+        </div>
+    
+</header>
+
+<!-- 02. Navigation Bar -->
+<nav>
+    <ul class="nav ps-5">
+        <li class="nav-element ms-5 ps-5">
+            <a class="nav-link" [routerLink]="'post-section'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Posts</a>
+        </li>
+        <li class="nav-element">
+            <a class="nav-link" [routerLink]="'developer-section'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Developers</a>
+        </li>
+    </ul>
+    
+</nav>
+
+<!-- 03. Main Section -->
+<router-outlet></router-outlet>
+</div>
+

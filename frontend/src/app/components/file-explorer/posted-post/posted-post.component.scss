@@ -1,12 +1,5 @@
-.files{
-    padding-top: 20px;
-    color: var(--text-color);
-}
 
-.material-symbols-outlined {
-  font-size: 100px;
-  color: var(--secondary-color);
-}.files{
+.files{
     padding-top: 20px;
     color: var(--text-color);
 
@@ -14,6 +7,10 @@
       font-size: 100px;
       color: var(--secondary-color);
     }
+}
+
+.empty{
+  color: var(--text-color);
 }
 
 // Modal
@@ -266,7 +263,7 @@
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .files {
     li{
       margin-right: 10px;
@@ -275,7 +272,7 @@
       font-size: 40px;
     }
     .post-name {
-      font-size: 10px;
+      font-size: 8px;
       width: 50%;
     }
   }

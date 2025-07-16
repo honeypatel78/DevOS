@@ -19,7 +19,9 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({origin: 'http://localhost:4200'}));
+app.use(cors({
+  origin: ['http://localhost:4200', 'http://192.168.1.119:4200']
+}));
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
@@ -34,31 +36,6 @@ app.use('/', calendar);
 //Default Route
 app.get('/', (req, res) => {
   res.send('API is Running');
-});
-
-// GET USER BY ID
-app.get('/user/:id', async (req, res) => { 
-  const userId = req.params.id;
-  try {
-    const pool = await poolPromise;
-    const result = await pool.request()
-      .input('userId', sql.Int, userId)
-      .query('SELECT * FROM Users WHERE UserID = @userId');
-    
-    if (result.recordset.length > 0) {
-      res.json({
-        message: "User fetched successfully",
-        status: true,
-        data: result.recordset[0]
-      });
-    } else {
-      res.status(404).json({ message: 'User not found' });
-    }
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
-  }
-
 });
 
 // GET ALL POSTS
@@ -205,7 +182,6 @@ app.post('/upload-post', memoryUpload.single('image'), async (req, res) => {
       .input('imagePath', sql.VarBinary(sql.MAX), imageBuffer)
       .input('postname', sql.NVarChar, postname)
       .input('title', sql.NVarChar, title)
-      .input('description', sql.NVarChar, description)
       .input('description', sql.NVarChar, description)
       .query(`
         INSERT INTO Posts (UserID, PostTitle, PostPhoto, PostDescription, PostName, isPosted, isDeleted)
@@ -452,7 +428,8 @@ app.post('/restore', async (req, res) => {
 
 
 
-app.listen(port, (req, res) =>{
-    console.log(`Server is running on: http://localhost:${port}`);
+app.listen(port, '0.0.0.0', (req, res) =>{
+    // console.log(`Server is running on: http://localhost:${port}`);
+    console.log(`Server is running on: http://192.168.1.119:${port}`);
 });
 

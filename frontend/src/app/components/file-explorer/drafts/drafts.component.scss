@@ -8,6 +8,10 @@
     }
 }
 
+.empty {
+  color: var(--text-color);
+}
+
 // Modal
 
 .modal {
@@ -233,29 +237,35 @@
 @media (max-width: 1246px){
 
   .files{
-
     .material-symbols-outlined {
-      font-size: 70px;
-      
+      font-size: 70px;    
     }
 }
 
 }
 @media (max-width: 823px){
-
   .files{
-
     .material-symbols-outlined {
       font-size: 50px;
-      
     }
-
     .post-name{
       font-size: 15px;
-
+      width: 50%;
     }
 }
 
+}
+
+@media (max-width: 500px) {
+  .files {
+    .material-symbols-outlined {
+      font-size: 40px;
+    }
+    .post-name {
+      font-size: 8px;
+      width: 50%;
+    }
+  }
 }
 
 

@@ -25,7 +25,7 @@ category : any[] = [] ;
 postName : string ='';
 submitType: string = '';
 
-userID = localStorage.getItem('userID');
+userID = sessionStorage.getItem('userID');
 
 constructor(private fb: FormBuilder, private postService: PostsService, private soundService: SoundService) {
   this.postForm = this.fb.group({

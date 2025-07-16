@@ -6,8 +6,8 @@
   <script>
     (function () {
       try {
-        const savedTheme = localStorage.getItem('theme') || 'default';
-        const savedMode = localStorage.getItem('mode') || 'light';
+        const savedTheme = sessionStorage.getItem('theme') || 'default';
+        const savedMode = sessionStorage.getItem('mode') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         document.documentElement.setAttribute('data-mode', savedMode);
       } catch (e) {

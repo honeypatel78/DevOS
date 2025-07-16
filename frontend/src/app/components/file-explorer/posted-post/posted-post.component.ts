@@ -14,7 +14,7 @@ import { SoundService } from '../../../services/sound.service';
 export class PostedPostComponent implements OnInit{
 
   postService = inject(PostsService);
-  userID = Number(localStorage.getItem("userID"));
+  userID = Number(sessionStorage.getItem("userID"));
   posts : Posts[] = [];
   isPost = false;
   index = 0;

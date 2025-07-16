@@ -1,29 +1,26 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { PostsService } from '../../services/posts.service';
-import { APIResponse } from '../../models/interface';
-import { Posts } from '../../models/class';
-import { CommonModule } from '@angular/common';
-import { AuthService } from '../../services/auth.service';
-import { FormsModule } from '@angular/forms';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { PostsService } from '../../../services/posts.service';
+import { AuthService } from '../../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { SoundService } from '../../services/sound.service';
+import { Router } from '@angular/router';
+import { SoundService } from '../../../services/sound.service';
+import { APIResponse } from '../../../models/interface';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { FilterService } from '../../../services/filter.service';
 
 @Component({
-  selector: 'app-post',
-  imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './post.component.html',
-  styleUrl: './post.component.scss'
+  selector: 'app-post-section',
+  imports: [CommonModule, FormsModule],
+  templateUrl: './post-section.component.html',
+  styleUrl: './post-section.component.scss'
 })
+export class PostSectionComponent implements OnInit, OnDestroy {
 
-export class PostComponent implements OnInit{
-
-   // Intialization
-  
    postService = inject(PostsService);
    posts: any[] = [];
   
- 
    //Filter
    categories: any[] = [];        
    showFilter: boolean = false;  
@@ -53,16 +50,20 @@ export class PostComponent implements OnInit{
     showSignupForm = false;
     showAvatar = false;
 
+    private sub: Subscription | undefined;
 
-    constructor(public auth: AuthService, private http: HttpClient, private router: Router, private soundService: SoundService) {
-  
+     constructor(public auth: AuthService, private http: HttpClient, private router: Router, private soundService: SoundService, private filterService: FilterService) {
     }
   
     ngOnInit(): void {
         this.getPosts();
+        this.getCategories();
+        this.sub = this.filterService.filterClicked$.subscribe(() => {
+         this.toggleFilter();
+    });
     }
 
-    //audio
+    //audios
     playsound(){
        this.soundService.playSound();
     }
@@ -90,8 +91,10 @@ export class PostComponent implements OnInit{
     this.postService.getCategories().subscribe((res: APIResponse) => {
     if (res.status) {
       this.categories = res.data;
+      console.log('Categories fetched:', this.categories);
     } else {
       console.error('Failed to fetch categories:', res.message);
+      console.log('No categories available');
     }
     }, error => {
     console.error('API error:', error);
@@ -100,7 +103,7 @@ export class PostComponent implements OnInit{
 
     //Like post
       getCurrentUserId(): number | null {
-        const userId = localStorage.getItem('userID');
+        const userId = sessionStorage.getItem('userID');
         return userId ? +userId : null;
       }
 
@@ -160,7 +163,7 @@ export class PostComponent implements OnInit{
       submitComment(postId: number): void {
       const commentText = this.newComments[postId]?.trim();
       const userId = this.getCurrentUserId();
-      const userName = localStorage.getItem('username') ?? 'Anonymous';
+      const userName = sessionStorage.getItem('username') ?? 'Anonymous';
 
       if (!userId) {
         alert('Please log in to comment.');
@@ -293,5 +296,11 @@ export class PostComponent implements OnInit{
         }
     }
 
+    ngOnDestroy(): void {
+  if (this.sub) {
+    this.sub.unsubscribe();
+  }
 }
 
+
+}

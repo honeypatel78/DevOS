@@ -47,6 +47,10 @@
   height: 50px;
 }
 
+.head-text{
+  color: #312F2D;
+}
+
 .dot{
   height: 15px;
   width: 15px;
@@ -80,7 +84,9 @@ label{
 .avatar-icon{
   width: auto;
   height: 100px;
+  // filter: grayscale(100%) invert(1) sepia(60%) brightness(1.5);
 }
+
 
 
 // MEDIA QUERIES 

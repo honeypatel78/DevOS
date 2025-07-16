@@ -1,0 +1,137 @@
+<main class="main d-flex">
+
+<!-- 3.1 Filter Section -->
+<div *ngIf="showFilter" class="filter-panel">
+  <h4>Select Category</h4>
+  <ul>
+    <li *ngFor="let cat of categories"
+    [class.selected]="selectedCategory === cat.CategoryName"
+    (click)="selectedCategory = cat.CategoryName">
+    {{ cat.CategoryName }}
+    </li>
+  </ul>
+  <div class="d-flex">
+  <button class="app-btn me-2" (click)="applyFilter()" *ngIf="!appliedFilter">Apply Filter</button>
+  <button class="app-btn me-2" (click)="removeFilter()" *ngIf="appliedFilter">Remove Filter</button>
+  <button (click)="showFilter = false" class="app-btn">Cancel</button>
+  </div>
+  
+</div>
+
+<!-- 3.2 Post Template -->
+<div class="d-flex flex-column justify-content-center w-100">
+<div class="browser-post d-flex justify-content-center p-4" *ngFor="let post of (filteredPosts.length ? filteredPosts : posts)">
+
+    <div class="browser-wrapper">
+
+      <div class="browser-window">
+        
+        <!-- Post Header -->
+        <div class="browser-header d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                <div class="me-2 ms-2">
+                  <img [src]="'http://localhost:3000' + post.ProfilePhoto" class="profile-photo">
+                </div>
+                <div class="user">
+                  <div class="big-font">{{ post.Username}}</div>
+                  <div class="small-font">{{ post.CreatedAt | date:'short'}}</div>
+                </div>
+            </div>
+            <div class="d-flex">
+              <span class="dot me-2"></span>
+              <span class="dot me-2"></span>
+              <span class="dot"></span>
+            </div>
+          
+        </div>
+
+        <!-- Post Body -->
+        <div class="browser-content">       
+        <div class="content">
+            <div class="title mb-2 big-font">
+                <span class="light">&lt;title&gt;</span> {{post.PostTitle}} <span class="light">&lt;/title&gt;</span>
+            </div>
+            <div class="body d-flex">
+                <div class="img"><img [src]="getBase64Image(post.PostPhoto)"></div>
+                <div class="description ms-2 medium-font">
+                <span class="light">&lt;body&gt;</span>
+                {{post.PostDescription}}
+                <span class="light">&lt;/body&gt;</span>
+            </div>
+            </div>
+            <div class="categories mt-2">
+                <ul class="list-cat d-flex medium-font">
+                     <li *ngFor="let cat of post.Categories.split(', ')" [class.filtercat]="selectedCategory === cat">{{ cat }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Comment & Like -->
+        <div class="end-section ">
+
+          <!-- Buttons -->
+            <div class="d-flex align-items-center">
+              
+            <button (click)="toggleLike(post.PostID)" class="d-flex align-items-center justify-content-center me-2 btn-like">
+              <span>
+                <div *ngIf="isLiked(post.PostID)" class="like-btn me-1"></div>
+                <div *ngIf="!isLiked(post.PostID)"class="unlike-btn me-1" width="24px" height="24px"></div>
+              </span>
+              <span style="font-size: 20px;">{{ likesCount[post.PostID] || 0 }}</span>
+              
+            </button>
+
+            <button (click)="toggleCommentBox(post.PostID)" class="btn-like">
+            <span class=" material-symbols-outlined comment-btn">mail</span>
+            </button> 
+            </div>
+
+            <div class="comments-section" *ngIf="isCommentBox[post.PostID]">
+
+            <h5 class="big-font">Comments</h5>
+
+            
+            <!-- Write Comment -->
+            <div class="d-flex align-items-center mb-2">
+                <textarea
+                class="input-box me-2"
+                [(ngModel)]="newComments[post.PostID]"
+                placeholder="Write a comment..."
+                rows="1"
+                cols="40"
+              ></textarea>
+              <button class="post-btn d-flex align-items-center" (click)="submitComment(post.PostID)">
+                Comment
+              </button>
+            </div>
+
+              <!-- Existing comments -->
+              <ul class="comments-list">
+                <div *ngIf="!comments[post.PostID]?.length">
+                  <li>No comments yet.</li>
+                </div>
+                <li *ngFor="let comment of comments[post.PostID]" style="list-style: none;" class="d-flex align-items-center">
+                <div class="me-2"><strong class="d-flex align-items-center"><span class="material-symbols-outlined me-1">account_circle</span>{{ comment.Username }}</strong></div>
+                <div>{{ comment.CommentText }}</div>
+              </li>
+            </ul>
+            </div>
+        </div>
+        </div>
+
+      </div>
+
+      <div class="browser-shadow"></div>
+
+      <div class="browser-shadow second"></div>
+    </div>
+
+    <div class="post-separator">
+
+    </div>
+
+  
+
+</div>
+</div>
+</main>

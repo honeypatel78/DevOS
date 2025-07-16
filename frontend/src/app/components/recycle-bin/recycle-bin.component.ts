@@ -16,7 +16,7 @@ export class RecycleBinComponent implements OnInit{
   
   postService = inject(PostsService);
   soundService = inject(SoundService);
-  userID = Number(localStorage.getItem("userID"));
+  userID = Number(sessionStorage.getItem("userID"));
   deletes : Posts[] = [];
   index = 0;
   isOpen = false;

@@ -5,11 +5,11 @@
             <span class="material-symbols-outlined" (click)="playsound()">
              folder_open
              </span>
-            <span>{{item.PostName}}</span>
+            <span class="post-name">{{item.PostName}}</span>
         </li>
     </ul>
 </div>
-<div *ngIf="posts.length===0" class="text-center mt-3" >No Posts Yet.</div>
+<div *ngIf="posts.length===0" class="text-center mt-3 empty" >No Posts Yet.</div>
 </div>
 
 <div id="modal" class="modal" *ngIf="isPost">

@@ -29,3 +29,8 @@ export interface LikeResponse {
   status: boolean;
   message: string;
 }
+
+export interface SocialLink {
+  Platform: string
+  Link: string
+}

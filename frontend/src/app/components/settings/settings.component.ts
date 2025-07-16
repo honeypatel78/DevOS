@@ -9,15 +9,14 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
 import { SoundService } from '../../services/sound.service';
 
-
-
 @Component({
-  selector: 'app-user-profile',
+  selector: 'app-settings',
   imports: [CommonModule, RouterLink, RouterOutlet],
-  templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.scss'
+  templateUrl: './settings.component.html',
+  styleUrl: './settings.component.scss'
 })
-export class UserProfileComponent implements OnInit{
+
+export class SettingsComponent {
 
   postService = inject(PostsService);
   userService = inject(UserService);
@@ -25,39 +24,12 @@ export class UserProfileComponent implements OnInit{
   constructor(public auth: AuthService, private http: HttpClient, private router: Router, private soundService: SoundService) {}
  
 
-  ngOnInit() {
-     this.getUser();
-  }
 
   playsound() {
     this.soundService.playSound();
   }
 
-   userID = localStorage.getItem('userID');
-   userName = localStorage.getItem('username');
-
-    user = {
-      UserID: 0,
-      Username: '',
-      Password: '',
-      ProfilePhoto: '',
-      CreatedAt: '',
-      UserRole: ''
-    }
-
   
-
-   getUser(){
-    const id = this.userID !== null ? Number(this.userID) : null;
-    if (id !== null && !isNaN(id)) {
-      this.userService.getUserById(id).subscribe((res:APIResponse) => {
-        this.user = res.data;
-      });
-    } else {
-      console.error('Invalid userID:', this.userID);
-    }
-   }
-
    
   logout() {
     this.auth.logout();

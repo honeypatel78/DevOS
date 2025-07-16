@@ -10,10 +10,15 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = 'http://localhost:3000';
+   // private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://192.168.1.119:3000';
   
   getUserById(id: number): Observable<APIResponse> {
     return this.http.get<APIResponse>(`${this.baseUrl}/user/${id}`);    
+  }
+
+  getAllUser(): Observable<APIResponse>{
+    return this.http.get<APIResponse>(`${this.baseUrl}/users`);
   }
 
   updateUser(userID: number, postData: FormData) {

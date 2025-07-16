@@ -8,7 +8,8 @@ import { Observable } from "rxjs";
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:3000';
+   // private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://192.168.1.119:3000';
 
   constructor(private http: HttpClient) {}
 
@@ -21,17 +22,17 @@ export class AuthService {
   }
 
   login(user: any) {
-    localStorage.setItem('username', user.username);
-    localStorage.setItem('userID', user.id);
+    sessionStorage.setItem('username', user.username);
+  sessionStorage.setItem('userID', user.id);
   }
 
   logout() {
-    localStorage.removeItem('username');
-    localStorage.removeItem('userID');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('userID');
   }
 
   getUser() {
-    const username = localStorage.getItem('username');
+    const username = sessionStorage.getItem('username');
     if (username) {
       return { username};
     }

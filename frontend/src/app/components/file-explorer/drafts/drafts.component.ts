@@ -14,7 +14,7 @@ import { SoundService } from '../../../services/sound.service';
 export class DraftsComponent implements OnInit{
 
   postService = inject(PostsService);
-  userID = Number(localStorage.getItem("userID"));
+  userID = Number(sessionStorage.getItem("userID"));
   drafts : Posts[] = [];
   index = 0;
   isDraft = false;

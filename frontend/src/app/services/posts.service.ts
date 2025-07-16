@@ -11,7 +11,8 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = 'http://localhost:3000';
+  // private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://192.168.1.119:3000';
 
   //*********************** Post Services ************************/
 

@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
   posts: Posts[] = [];
   drafts: Posts[] = [];
 
-  userID = Number(localStorage.getItem('userID'));
+  userID = Number(sessionStorage.getItem('userID'));
 
   ngOnInit() {
     this.postService.getPostByUserId(this.userID).subscribe((res:APIResponse) => {

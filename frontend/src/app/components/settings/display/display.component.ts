@@ -15,8 +15,8 @@ export class DisplayComponent implements OnInit {
   soundService = inject(SoundService);
 
   ngOnInit() {
-  const savedTheme = localStorage.getItem('theme') || 'default';
-  const savedMode = localStorage.getItem('mode') || 'light';
+  const savedTheme = sessionStorage.getItem('theme') || 'default';
+  const savedMode = sessionStorage.getItem('mode') || 'light';
 
   this.setTheme(savedTheme);
   this.setMode(savedMode);
@@ -28,12 +28,12 @@ export class DisplayComponent implements OnInit {
 
   setTheme(theme: string) {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+   sessionStorage.setItem('theme', theme);
     
   }
 
   setMode(mode: string) {
     document.documentElement.setAttribute('data-mode', mode);
-    localStorage.setItem('mode', mode);
+    sessionStorage.setItem('mode', mode);
   }
 }

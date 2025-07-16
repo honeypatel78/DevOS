@@ -30,7 +30,7 @@ export class HomeScreenComponent implements OnInit{
   soundService = inject(SoundService);
 
 
-  id = Number(localStorage.getItem('userID'));
+  id = Number(sessionStorage.getItem('userID'));
 
   constructor() { 
     const today = new Date();
