@@ -18,6 +18,8 @@
         <div class="box">{{user.Bio}}</div>
         <div class="label">Account Created At:
         <div class="box">{{user.CreatedAt | date:'short'}}</div>
+        <div class="label">About:</div>
+        <div class="box">{{user.About}}</div>
         </div>
         <button class="app-btn mt-4" (click)="togglePW(); playsound()">Change Password</button>
     </div>

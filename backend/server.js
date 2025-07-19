@@ -4,7 +4,6 @@ import bodyParser from 'body-parser';
 import { diskUpload } from './middleware/uploads.js';
 import { memoryUpload } from './middleware/uploads.js';
 
-
 import {sql, poolPromise, dotenv}  from './config/db.js';
 
 import loginRoutes from './routes/auth.js';

@@ -52,7 +52,7 @@ export class PostSectionComponent implements OnInit, OnDestroy {
 
     private sub: Subscription | undefined;
 
-     constructor(public auth: AuthService, private http: HttpClient, private router: Router, private soundService: SoundService, private filterService: FilterService) {
+    constructor(public auth: AuthService, private http: HttpClient, private router: Router, private soundService: SoundService, private filterService: FilterService) {
     }
   
     ngOnInit(): void {

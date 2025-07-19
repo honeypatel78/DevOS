@@ -1,15 +1,15 @@
 <div *ngFor="let user of users">
-<div class="browser-post d-flex justify-content-center p-4">
-  <div class="browser-wrapper">
+<div class="browser-post-dev d-flex justify-content-center p-4">
+  <div class="browser-wrapper-dev">
     
     <!-- Shadow behind the window -->
-    <div class="browser-shadow"></div>
-    <div class="browser-shadow second"></div>
+    <div class="browser-shadow-dev"></div>
+    <div class="browser-shadow-dev second"></div>
 
-    <div class="browser-window"> 
+    <div class="browser-window-dev"> 
 
       <!-- Post Body -->
-      <div class="browser-content d-flex">       
+      <div class="browser-content-dev d-flex">       
         <div class="user-photo me-4"><img src="male-2.png" alt="profile-photo"></div>
         <div class="user-info flex-grow-1">
           <div class="d-flex justify-content-between"><div class="name">{{user.Name}}</div><div><button class="app-btn">Add to Dev List</button></div></div>
@@ -20,7 +20,7 @@
         </div>
         
       </div>
-      <div *ngIf="openElement" class="browser-more">
+      <div *ngIf="openElement" class="browser-more-dev">
           <div class="about">
             <div class="more-heading">About</div>
             <div class="more-section">{{user.About}}</div>
@@ -36,7 +36,7 @@
             <div class="more-section">
               <div *ngIf="user.RecentPosts.length === 0">No Posts Yet.</div>
               <ul>
-              <li *ngFor="let post of user.RecentPosts">{{post.PostTitle}}</li>
+              <li *ngFor="let post of user.RecentPosts" (click)="showPost(post.PostID); togglePost()">{{post.PostTitle}}</li>
               </ul>
             </div>
           </div>
@@ -61,5 +61,7 @@
   </div>
 </div>
 </div>
+
+<div *ngIf="openPost" (click)="togglePost()">{{posts[0].PostName}}</div>
 
 
